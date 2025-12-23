@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Arindom Kundu - Official Website</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary: #0563bb;
+            --primary-dark: #03488a;
+            --secondary: #6c757d;
+            --light: #f0f7fd;
+            --dark: #333;
+            --white: #ffffff;
+            --gold: #d4af37; /* For Certificates */
+            --shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--white); color: var(--dark); line-height: 1.6; }
+        html { scroll-behavior: smooth; }
+        a { text-decoration: none; color: inherit; }
+        
+        /* --- NAVIGATION --- */
+        nav {
+            background: var(--white); padding: 1rem 5%; display: flex; justify-content: space-between;
+            align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .logo { font-size: 1.4rem; font-weight: 700; color: var(--primary); }
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .nav-links a { font-weight: 500; transition: color 0.3s; font-size: 1rem; }
+        .nav-links a:hover { color: var(--primary); }
+        .btn-nav-book { 
+            background: var(--primary); color: var(--white); padding: 8px 18px; border-radius: 50px; 
+            font-weight: 600; font-size: 0.95rem; transition: background 0.3s; 
+        }
+        .btn-nav-book:hover { background: var(--primary-dark); }
+        .hamburger { display: none; font-size: 1.8rem; cursor: pointer; color: var(--dark); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(5, 99, 187, 0.05), rgba(5, 99, 187, 0.1));
+            padding: 3rem 5%; display: flex; align-items: center; justify-content: space-between; min-height: 80vh;
+        }
+        .hero-content { max-width: 50%; }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 10px; color: var(--dark); line-height: 1.2; }
+        .hero h2 { font-size: 1.5rem; color: var(--primary); margin-bottom: 20px; font-weight: 600; }
+        .hero-img { max-width: 45%; display: flex; justify-content: center; }
+        .avatar {
+            width: 280px; height: 280px; background-color: #e2e6ea; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 8rem; color: #adb5bd;
+            border: 5px solid var(--white); box-shadow: var(--shadow); object-fit: cover;
+        }
+        .btn-hero {
+            background: var(--primary); color: var(--white); padding: 15px 35px; border-radius: 50px; 
+            font-size: 1.1rem; border: none; cursor: pointer; transition: 0.3s; box-shadow: var(--shadow); display: inline-block;
+        }
+
+        /* --- SECTIONS COMMON --- */
+        .section { padding: 4rem 5%; }
+        .section-title { text-align: center; font-size: 2rem; margin-bottom: 2.5rem; color: var(--primary); }
+
+        /* --- SERVICES GRID --- */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .service-card {
+            background: var(--white); padding: 2rem; border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;
+        }
+        .icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+
+        /* --- CERTIFICATES SECTION --- */
+        .cert-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;
+        }
+        .cert-card {
+            background: white; padding: 15px; border: 1px solid #ddd;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center;
+        }
+        .cert-frame {
+            border: 8px solid var(--light); 
+            border-image: linear-gradient(to bottom right, #b8860b, #ebd1a0, #b8860b) 1; 
+            padding: 20px; height: 200px;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            background: #fff; position: relative;
+        }
+        .cert-title { font-weight: bold; font-size: 1.2rem; margin-bottom: 5px; color: var(--dark); }
+        .cert-desc { font-size: 0.9rem; color: #666; }
+        .cert-icon { font-size: 2rem; margin-bottom: 10px; color: var(--gold); }
+
+        /* --- CONTACT INFO --- */
+        .info-container {
+            display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between;
+            background: var(--light); padding: 3rem; border-radius: 15px;
+        }
+        .info-box { flex: 1; min-width: 200px; text-align: center; }
+        .info-box h3 { margin-bottom: 10px; color: var(--primary); }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media screen and (max-width: 768px) {
+            .hamburger { display: block; }
+            .nav-links {
+                display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%;
+                background: var(--white); padding: 20px; box-shadow: 0 10px 10px rgba(0,0,0,0.05); text-align: center;
+            }
+            .nav-links.active { display: flex; }
+            .btn-nav-book { width: 100%; display: block; margin-top: 10px; }
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 2rem; }
+            .hero-content { max-width: 100%; margin-top: 30px; }
+            .hero-img { max-width: 100%; }
+            .hero h1 { font-size: 2.2rem; }
+            .avatar { width: 220px; height: 220px; font-size: 6rem; margin: 0 auto; }
+            .info-container { padding: 2rem 1rem; flex-direction: column; }
+        }
+
+        /* --- MODAL --- */
+        .modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center;
+        }
+        .modal-content {
+            background-color: var(--white); padding: 2rem; border-radius: 12px; width: 90%; max-width: 400px; position: relative;
+        }
+        .close { position: absolute; right: 20px; top: 15px; font-size: 2rem; cursor: pointer; color: #aaa; }
+        input, select { width: 100%; padding: 12px; margin: 8px 0 20px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px; }
+        .btn-submit { width: 100%; background: var(--primary); color: white; border: none; padding: 14px; font-size: 1.1rem; border-radius: 5px; cursor: pointer; }
+        
+        footer { background: var(--primary); color: var(--white); text-align: center; padding: 2rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Dr. Kundu</div>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <div class="nav-links" id="navLinks">
+            <a href="#about" onclick="toggleMenu()">About</a>
+            <a href="#services" onclick="toggleMenu()">Services</a>
+            <a href="#certificates" onclick="toggleMenu()">Certificates</a>
+            <a href="#contact" onclick="toggleMenu()">Contact</a>
+            <a onclick="openModal(); toggleMenu()" class="btn-nav-book" style="color: white; cursor: pointer;">Book Now</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="about">
+        <div class="hero-content">
+            <h1>Dr. Arindom Kundu</h1>
+            <h2>MBBS, MD - General Medicine</h2>
+            <p>Compassionate care with 15+ years of experience. Diagnosing the root cause, not just the symptoms.</p>
+            <button class="btn-hero" onclick="openModal()">Book Appointment</button>
+        </div>
+        <div class="hero-img">
+            <div class="avatar">👨‍⚕️</div>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <h2 class="section-title">Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="icon">🩺</span>
+                <h3>General Checkup</h3>
+                <p>Complete health assessment and physical examinations.</p>
+            </div>
+            <div class="service-card">
+                <span class="icon">💊</span>
+                <h3>Chronic Disease</h3>
+                <p>Management for diabetes, hypertension, and thyroid issues.</p>
+            </div>
+            <div class="service-card">
+                <span class="icon">🚑</span>
+                <h3>Emergency Care</h3>
+                <p>Immediate attention for acute illnesses and minor injuries.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates" class="section" style="background-color: #fafafa;">
+        <h2 class="section-title">Certificates & Achievements</h2>
+        <div class="cert-grid">
+            
+            <div class="cert-card">
+                <div class="cert-frame">
+                    <div class="cert-icon">🎓</div>
+                    <div class="cert-title">MBBS Degree</div>
+                    <div class="cert-desc">University of Health Sciences</div>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-frame">
+                    <div class="cert-icon">📜</div>
+                    <div class="cert-title">MD - General Medicine</div>
+                    <div class="cert-desc">National Medical College</div>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-frame">
+                    <div class="cert-icon">🏆</div>
+                    <div class="cert-title">Best Doctor Award</div>
+                    <div class="cert-desc">City Hospital Excellence Award</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2 class="section-title">Find Us</h2>
+        <div class="info-container">
+            <div class="info-box">
+                <h3>📍 Visit</h3>
+                <p>City Medical Center,<br>Kolkata, West Bengal</p>
+            </div>
+            <div class="info-box">
+                <h3>⏰ Timing</h3>
+                <p>Mon - Sat<br>10:00 AM - 8:00 PM</p>
+            </div>
+            <div class="info-box">
+                <h3>📞 Call</h3>
+                <p>+91 98765 43210<br>help@drarindom.com</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Dr. Arindom Kundu. All rights reserved.</p>
+    </footer>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 style="color:var(--primary); margin-bottom: 15px;">Book Appointment</h3>
+            <p style="font-size:0.9rem; color:#666; margin-bottom:15px;">Details will be sent via WhatsApp</p>
+            <form id="bookingForm">
+                <label>Name</label>
+                <input type="text" placeholder="Your Name" required>
+                <label>Phone</label>
+                <input type="tel" placeholder="Mobile Number" required>
+                <label>Date</label>
+                <input type="date" required>
+                <button type="submit" class="btn-submit">Confirm via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // --- MOBILE MENU TOGGLE ---
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+        }
+
+        // --- MODAL LOGIC ---
+        const modal = document.getElementById("bookingModal");
+
+        function openModal() { modal.style.display = "flex"; }
+        function closeModal() { modal.style.display = "none"; }
+        
+        window.onclick = function(event) {
+            if (event.target == modal) { closeModal(); }
+        }
+
+        // --- WHATSAPP INTEGRATION ---
+        document.getElementById('bookingForm').addEventListener('submit', function(e){
+            e.preventDefault();
+
+            // 1. Get values from the form
+            const inputs = this.getElementsByTagName('input');
+            const name = inputs[0].value;
+            const phone = inputs[1].value;
+            const date = inputs[2].value;
+
+            // 2. Format the message
+            const message = `*New Appointment Request* %0a` +
+                            `---------------------------%0a` +
+                            `*Name:* ${name} %0a` +
+                            `*Phone:* ${phone} %0a` +
+                            `*Date:* ${date} %0a` +
+                            `---------------------------%0a` +
+                            `Please confirm this booking.`;
+
+            // 3. Your WhatsApp Number
+            const doctorNumber = "917908470514"; 
+
+            // 4. Create the WhatsApp Link
+            const url = `https://wa.me/${doctorNumber}?text=${message}`;
+
+            // 5. Open WhatsApp
+            window.open(url, '_blank').focus();
+            
+            closeModal();
+        });
+    </script>
+</body>
+</html>
