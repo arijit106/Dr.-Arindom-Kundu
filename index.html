@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Arindom Kundu - Official Website</title>
+    <title>Archana Dental Clinic - Malbazar</title>
     <style>
         /* --- CSS VARIABLES & RESET --- */
         :root {
-            --primary: #0563bb;
-            --primary-dark: #03488a;
+            --primary: #2563eb; /* Bright Blue */
+            --primary-dark: #1e40af;
             --secondary: #6c757d;
-            --light: #f0f7fd;
-            --dark: #333;
+            --light: #e0f7fa;
+            --bg-grey: #f8f9fa;
+            --dark: #1f2937;
             --white: #ffffff;
-            --gold: #d4af37; /* For Certificates */
-            --shadow: 0 4px 15px rgba(0,0,0,0.1);
+            --gold: #d4af37; 
+            --shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
         
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
@@ -27,7 +28,7 @@
             background: var(--white); padding: 1rem 5%; display: flex; justify-content: space-between;
             align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        .logo { font-size: 1.4rem; font-weight: 700; color: var(--primary); }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
         .nav-links { display: flex; gap: 20px; align-items: center; }
         .nav-links a { font-weight: 500; transition: color 0.3s; font-size: 1rem; }
         .nav-links a:hover { color: var(--primary); }
@@ -36,47 +37,63 @@
             font-weight: 600; font-size: 0.95rem; transition: background 0.3s; 
         }
         .btn-nav-book:hover { background: var(--primary-dark); }
-        .hamburger { display: none; font-size: 1.8rem; cursor: pointer; color: var(--dark); }
+        .hamburger { display: none; font-size: 1.8rem; cursor: pointer; color: var(--dark); border: none; background: none; }
 
         /* --- HERO SECTION --- */
         .hero {
-            background: linear-gradient(rgba(5, 99, 187, 0.05), rgba(5, 99, 187, 0.1));
-            padding: 3rem 5%; display: flex; align-items: center; justify-content: space-between; min-height: 80vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1600&q=80'); 
+            background-size: cover; background-position: center;
+            color: white;
+            padding: 3rem 5%; 
+            display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+            min-height: 80vh;
         }
-        .hero-content { max-width: 50%; }
-        .hero h1 { font-size: 2.8rem; margin-bottom: 10px; color: var(--dark); line-height: 1.2; }
-        .hero h2 { font-size: 1.5rem; color: var(--primary); margin-bottom: 20px; font-weight: 600; }
-        .hero-img { max-width: 45%; display: flex; justify-content: center; }
-        .avatar {
-            width: 280px; height: 280px; background-color: #e2e6ea; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; font-size: 8rem; color: #adb5bd;
-            border: 5px solid var(--white); box-shadow: var(--shadow); object-fit: cover;
+        .hero h1 { 
+            font-size: 3.5rem; margin-bottom: 10px; font-weight: 800; 
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
         }
-        .btn-hero {
-            background: var(--primary); color: var(--white); padding: 15px 35px; border-radius: 50px; 
-            font-size: 1.1rem; border: none; cursor: pointer; transition: 0.3s; box-shadow: var(--shadow); display: inline-block;
+        .hero h2 { 
+            font-size: 1.5rem; margin-bottom: 20px; font-weight: 500; 
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.6); 
         }
+        .hero-btn {
+            background: var(--white); color: var(--primary); padding: 15px 40px; border-radius: 50px; 
+            font-size: 1.1rem; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; box-shadow: var(--shadow);
+            margin-top: 20px;
+        }
+        .hero-btn:hover { background: #f1f1f1; transform: scale(1.05); }
 
         /* --- SECTIONS COMMON --- */
         .section { padding: 4rem 5%; }
-        .section-title { text-align: center; font-size: 2rem; margin-bottom: 2.5rem; color: var(--primary); }
+        .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 3rem; color: var(--primary-dark); position: relative; }
+        .section-title::after {
+            content: ''; display: block; width: 60px; height: 4px; background: var(--primary); margin: 10px auto 0; border-radius: 2px;
+        }
 
-        /* --- SERVICES GRID --- */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .service-card {
-            background: var(--white); padding: 2rem; border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;
+        /* --- ABOUT SECTION (UPDATED FOR IMAGE) --- */
+        .about-container { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; }
+        .about-text { flex: 1; min-width: 300px; }
+        .about-text h3 { font-size: 1.8rem; color: var(--primary); margin-bottom: 15px; }
+        .about-text p { margin-bottom: 15px; color: #555; font-size: 1.05rem; line-height: 1.8; }
+        .about-img { flex: 1; min-width: 300px; display: flex; justify-content: center; }
+        
+        .doctor-photo {
+            width: 300px; height: 300px; background-color: #eee; border-radius: 15px;
+            display: flex; align-items: center; justify-content: center; 
+            box-shadow: var(--shadow); border: 5px solid var(--white);
+            overflow: hidden; /* Ensures image stays inside rounded corners */
         }
-        .icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
 
-        /* --- CERTIFICATES SECTION --- */
-        .cert-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;
+        /* New CSS for the image inside the frame */
+        .doctor-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* This makes sure the photo covers the box perfectly */
         }
-        .cert-card {
-            background: white; padding: 15px; border: 1px solid #ddd;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center;
-        }
+
+        /* --- CERTIFICATES --- */
+        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .cert-card { background: white; padding: 15px; border: 1px solid #ddd; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; }
         .cert-frame {
             border: 8px solid var(--light); 
             border-image: linear-gradient(to bottom right, #b8860b, #ebd1a0, #b8860b) 1; 
@@ -88,29 +105,136 @@
         .cert-desc { font-size: 0.9rem; color: #666; }
         .cert-icon { font-size: 2rem; margin-bottom: 10px; color: var(--gold); }
 
-        /* --- CONTACT INFO --- */
-        .info-container {
-            display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between;
-            background: var(--light); padding: 3rem; border-radius: 15px;
+        /* --- FANCY SERVICES CARD --- */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .fancy-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid #eee;
         }
-        .info-box { flex: 1; min-width: 200px; text-align: center; }
-        .info-box h3 { margin-bottom: 10px; color: var(--primary); }
+        .fancy-card:hover { transform: translateY(-10px); }
+        
+        .fancy-card-header {
+            background: #3b82f6; 
+            height: 140px;
+            position: relative;
+            border-bottom-left-radius: 50% 30px;
+            border-bottom-right-radius: 50% 30px;
+        }
+        
+        .fancy-card-icon-wrapper {
+            width: 100px;
+            height: 100px;
+            background: var(--white);
+            border-radius: 50%;
+            margin: -50px auto 15px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+            border: 4px solid var(--white); 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        .fancy-icon { font-size: 2.5rem; }
+        .fancy-card-body { padding: 0 25px 30px; }
+        .fancy-card h3 { 
+            font-size: 1.4rem; font-weight: 700; margin-bottom: 10px; color: #1f2937; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .fancy-card p {
+            font-size: 0.95rem; color: #6b7280; margin-bottom: 25px; line-height: 1.5;
+        }
+        .fancy-btn-group { display: flex; justify-content: center; gap: 10px; }
+        .btn-fancy {
+            padding: 10px 20px; border-radius: 30px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.3s; border: none;
+        }
+        .btn-view { background: #3b82f6; color: white; }
+        .btn-view:hover { background: #2563eb; }
+        .btn-play { background: #3b82f6; color: white; }
+        .btn-play:hover { background: #2563eb; }
+
+        /* --- COMPRESSED GALLERY --- */
+        .gallery-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 10px; 
+        }
+        .gallery-item {
+            height: 180px; /* Compressed Height */
+            border-radius: 10px; overflow: hidden; background-color: #eee;
+            position: relative; box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .gallery-item img {
+            width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+        
+        .gallery-caption {
+            position: absolute; bottom: 0; left: 0; width: 100%; 
+            background: rgba(0,0,0,0.6); color: white; padding: 5px; 
+            text-align: center; font-size: 0.85rem;
+        }
+
+        /* --- CONTACT & MAP SECTION --- */
+        .contact-section { background: var(--bg-grey); }
+        .contact-wrapper {
+            display: flex; flex-wrap: wrap; gap: 30px;
+            background: var(--white); padding: 2rem; border-radius: 15px; box-shadow: var(--shadow);
+        }
+        .info-container { flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 20px; justify-content: center; }
+        .info-item { display: flex; align-items: center; gap: 15px; }
+        .info-icon { width: 50px; height: 50px; background: var(--light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.5rem; flex-shrink: 0; }
+        
+        .map-container { flex: 1; min-width: 300px; height: 350px; border-radius: 10px; overflow: hidden; border: 2px solid #eee; }
+        iframe { width: 100%; height: 100%; border: 0; }
 
         /* --- MOBILE RESPONSIVENESS --- */
         @media screen and (max-width: 768px) {
+            .section { padding: 3rem 5%; }
             .hamburger { display: block; }
+            
             .nav-links {
                 display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%;
-                background: var(--white); padding: 20px; box-shadow: 0 10px 10px rgba(0,0,0,0.05); text-align: center;
+                background: var(--white); padding: 20px; box-shadow: 0 10px 10px rgba(0,0,0,0.1); text-align: center;
+                gap: 15px;
             }
-            .nav-links.active { display: flex; }
-            .btn-nav-book { width: 100%; display: block; margin-top: 10px; }
-            .hero { flex-direction: column-reverse; text-align: center; padding-top: 2rem; }
-            .hero-content { max-width: 100%; margin-top: 30px; }
-            .hero-img { max-width: 100%; }
+            .nav-links.active { display: flex; animation: slideDown 0.3s ease; }
+            
             .hero h1 { font-size: 2.2rem; }
-            .avatar { width: 220px; height: 220px; font-size: 6rem; margin: 0 auto; }
-            .info-container { padding: 2rem 1rem; flex-direction: column; }
+            .hero h2 { font-size: 1.2rem; }
+            .section-title { font-size: 1.8rem; }
+            
+            /* About Section: Image First */
+            .about-container { flex-direction: column; }
+            
+            .contact-wrapper { flex-direction: column; padding: 1.5rem; }
+            .about-text, .about-img, .map-container, .info-container { min-width: 100%; }
+            .doctor-photo { width: 250px; height: 250px; font-size: 4rem; margin: 0 auto; }
+            .btn-nav-book { width: 100%; display: block; margin-top: 10px; padding: 12px; }
+
+            .cert-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .cert-card { padding: 8px; }
+            .cert-frame { padding: 10px; height: auto; min-height: 140px; border-width: 4px; }
+            .cert-title { font-size: 0.9rem; margin-bottom: 2px; }
+            .cert-desc { font-size: 0.75rem; line-height: 1.3; }
+            .cert-icon { font-size: 1.5rem; margin-bottom: 5px; }
+
+            /* --- GALLERY MOBILE: COMPRESSED --- */
+            .gallery-grid { 
+                grid-template-columns: 1fr;
+                gap: 10px; 
+            }
+            .gallery-item { height: 180px; }
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* --- MODAL --- */
@@ -120,57 +244,57 @@
         }
         .modal-content {
             background-color: var(--white); padding: 2rem; border-radius: 12px; width: 90%; max-width: 400px; position: relative;
+            max-height: 90vh; overflow-y: auto;
         }
         .close { position: absolute; right: 20px; top: 15px; font-size: 2rem; cursor: pointer; color: #aaa; }
         input, select { width: 100%; padding: 12px; margin: 8px 0 20px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px; }
         .btn-submit { width: 100%; background: var(--primary); color: white; border: none; padding: 14px; font-size: 1.1rem; border-radius: 5px; cursor: pointer; }
         
-        footer { background: var(--primary); color: var(--white); text-align: center; padding: 2rem; }
+        footer { background: var(--primary-dark); color: var(--white); text-align: center; padding: 2rem; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Dr. Kundu</div>
-        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <div class="logo">Archana Dental</div>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
         <div class="nav-links" id="navLinks">
+            <a href="#home" onclick="toggleMenu()">Home</a>
             <a href="#about" onclick="toggleMenu()">About</a>
-            <a href="#services" onclick="toggleMenu()">Services</a>
             <a href="#certificates" onclick="toggleMenu()">Certificates</a>
+            <a href="#services" onclick="toggleMenu()">Services</a>
+            <a href="#gallery" onclick="toggleMenu()">Gallery</a>
             <a href="#contact" onclick="toggleMenu()">Contact</a>
-            <a onclick="openModal(); toggleMenu()" class="btn-nav-book" style="color: white; cursor: pointer;">Book Now</a>
+            <a onclick="openModal(); toggleMenu()" class="btn-nav-book" style="color: white; cursor: pointer;">Book Visit</a>
         </div>
     </nav>
 
-    <section class="hero" id="about">
-        <div class="hero-content">
-            <h1>Dr. Arindom Kundu</h1>
-            <h2>MBBS, MD - General Medicine</h2>
-            <p>Compassionate care with 15+ years of experience. Diagnosing the root cause, not just the symptoms.</p>
-            <button class="btn-hero" onclick="openModal()">Book Appointment</button>
-        </div>
-        <div class="hero-img">
-            <div class="avatar">👨‍⚕️</div>
-        </div>
-    </section>
+    <header class="hero" id="home">
+        <h1>Archana Dental Clinic</h1>
+        <h2>Advanced Dental Care in Malbazar</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 20px; text-shadow: 1px 1px 5px rgba(0,0,0,0.7);">By Dr. Arindam Kundu (B.D.S.)</p>
+        <button class="hero-btn" onclick="openModal()">Book Appointment</button>
+    </header>
 
-    <section id="services" class="section">
-        <h2 class="section-title">Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <span class="icon">🩺</span>
-                <h3>General Checkup</h3>
-                <p>Complete health assessment and physical examinations.</p>
+    <section id="about" class="section">
+        <h2 class="section-title">About the Doctor</h2>
+        <div class="about-container">
+            <div class="about-img">
+                <div class="doctor-photo">
+                    <img src="https://drive.google.com/thumbnail?id=1YnCGkqKMM4G4DbzXkIrWrTcHZugnqaZ5&sz=w1000" alt="Dr. Arindam Kundu">
+                </div>
             </div>
-            <div class="service-card">
-                <span class="icon">💊</span>
-                <h3>Chronic Disease</h3>
-                <p>Management for diabetes, hypertension, and thyroid issues.</p>
-            </div>
-            <div class="service-card">
-                <span class="icon">🚑</span>
-                <h3>Emergency Care</h3>
-                <p>Immediate attention for acute illnesses and minor injuries.</p>
+            <div class="about-text">
+                <h3>Dr. Arindam Kundu</h3>
+                <p><strong>B.D.S. (Dental Surgeon)</strong></p>
+                <p>
+                    Technology meets compassion at Archana Dental Clinic in Malbazar, Jalpaiguri.
+                    We believe in honest, clear communication & treating you like family.
+                </p>
+                <p>
+                    Experience dentistry that's efficient, effective, and always comfortable. 
+                    Your journey to a brighter, healthier smile starts here.
+                </p>
             </div>
         </div>
     </section>
@@ -178,69 +302,181 @@
     <section id="certificates" class="section" style="background-color: #fafafa;">
         <h2 class="section-title">Certificates & Achievements</h2>
         <div class="cert-grid">
-            
             <div class="cert-card">
                 <div class="cert-frame">
                     <div class="cert-icon">🎓</div>
-                    <div class="cert-title">MBBS Degree</div>
-                    <div class="cert-desc">University of Health Sciences</div>
+                    <div class="cert-title">B.D.S. Degree</div>
+                    <div class="cert-desc">Bachelor of Dental Surgery</div>
                 </div>
             </div>
-
             <div class="cert-card">
                 <div class="cert-frame">
                     <div class="cert-icon">📜</div>
-                    <div class="cert-title">MD - General Medicine</div>
-                    <div class="cert-desc">National Medical College</div>
+                    <div class="cert-title">Registration</div>
+                    <div class="cert-desc">West Bengal Dental Council</div>
                 </div>
             </div>
-
             <div class="cert-card">
                 <div class="cert-frame">
                     <div class="cert-icon">🏆</div>
-                    <div class="cert-title">Best Doctor Award</div>
-                    <div class="cert-desc">City Hospital Excellence Award</div>
+                    <div class="cert-title">Excellence Award</div>
+                    <div class="cert-desc">Advanced Dental Care</div>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-frame">
+                    <div class="cert-icon">🤝</div>
+                    <div class="cert-title">Member</div>
+                    <div class="cert-desc">Indian Dental Association</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            
+            <div class="fancy-card">
+                <div class="fancy-card-header"></div>
+                <div class="fancy-card-icon-wrapper">
+                    <span class="fancy-icon">🦷</span>
+                </div>
+                <div class="fancy-card-body">
+                    <h3>General Dentistry</h3>
+                    <p>Root canals (RCT), painless fillings, and routine extraction for a healthy mouth.</p>
+                    <div class="fancy-btn-group">
+                        <button class="btn-fancy btn-view" onclick="openModal()">Book Now</button>
+                        <button class="btn-fancy btn-play" onclick="openModal()">Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fancy-card">
+                <div class="fancy-card-header"></div>
+                <div class="fancy-card-icon-wrapper">
+                    <span class="fancy-icon">✨</span>
+                </div>
+                <div class="fancy-card-body">
+                    <h3>Cosmetic Care</h3>
+                    <p>Professional teeth whitening and smile designing to boost your confidence.</p>
+                    <div class="fancy-btn-group">
+                        <button class="btn-fancy btn-view" onclick="openModal()">Book Now</button>
+                        <button class="btn-fancy btn-play" onclick="openModal()">Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fancy-card">
+                <div class="fancy-card-header"></div>
+                <div class="fancy-card-icon-wrapper">
+                    <span class="fancy-icon">⚙️</span>
+                </div>
+                <div class="fancy-card-body">
+                    <h3>Prosthetics</h3>
+                    <p>High-quality implants, dental bridges, and dentures for perfect restoration.</p>
+                    <div class="fancy-btn-group">
+                        <button class="btn-fancy btn-view" onclick="openModal()">Book Now</button>
+                        <button class="btn-fancy btn-play" onclick="openModal()">Details</button>
+                    </div>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <section id="contact" class="section">
-        <h2 class="section-title">Find Us</h2>
-        <div class="info-container">
-            <div class="info-box">
-                <h3>📍 Visit</h3>
-                <p>City Medical Center,<br>Kolkata, West Bengal</p>
+    <section id="gallery" class="section" style="background-color: #f8f9fa;">
+        <h2 class="section-title">Clinic Gallery</h2>
+        <div class="gallery-grid">
+            
+            <div class="gallery-item">
+                <img src="https://drive.google.com/thumbnail?id=1dG9FDMDEHHZvTozPHwpg7Fpc4NeUURue&sz=w1000" alt="Happy child patient">
+                <div class="gallery-caption">Pediatric Dentistry</div>
             </div>
-            <div class="info-box">
-                <h3>⏰ Timing</h3>
-                <p>Mon - Sat<br>10:00 AM - 8:00 PM</p>
+
+            <div class="gallery-item">
+                <img src="https://drive.google.com/thumbnail?id=1W8Z7T9qHM2DFdgrSmD-1OV_wrsFv6wCp&sz=w1000" alt="Painless dental checkup">
+                <div class="gallery-caption">Painless Checkups</div>
             </div>
-            <div class="info-box">
-                <h3>📞 Call</h3>
-                <p>+91 98765 43210<br>help@drarindom.com</p>
+
+            <div class="gallery-item">
+                <img src="https://drive.google.com/thumbnail?id=1JJanURrprzEDYpgPCM5NEhZ_MujwzbBM&sz=w1000" alt="Dental crowns">
+                <div class="gallery-caption">Quality Crowns & Bridges</div>
             </div>
+
+            <div class="gallery-item">
+                <img src="https://drive.google.com/thumbnail?id=1HPVw10ejgDEHFe3d6npcdMnPpsmRgOwe&sz=w1000" alt="Dental Protection">
+                <div class="gallery-caption">Complete Dental Protection</div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+        <h2 class="section-title">Visit Us</h2>
+        <div class="contact-wrapper">
+            
+            <div class="info-container">
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div>
+                        <h3>Location</h3>
+                        <p>Archana Dental Clinic<br>Malbazar, Jalpaiguri</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">⏰</div>
+                    <div>
+                        <h3>Opening Hours</h3>
+                        <p>Mon - Sat: 10:00 AM - 8:00 PM</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">📞</div>
+                    <div>
+                        <h3>Call for Appointment</h3>
+                        <p>+91 7718799929</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3564.075412586737!2d88.7497!3d26.8688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e4071350106555%3A0x6731d10d61175654!2sMalbazar%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1709028000000!5m2!1sen!2sin" allowfullscreen loading="lazy"></iframe>
+            </div>
+
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Dr. Arindom Kundu. All rights reserved.</p>
+        <div class="footer-content">
+            <p>© 2024 Archana Dental Clinic. All rights reserved.</p>
+            
+            <div class="dev-info">
+                Website Designed & Developed by <span>Arijit kundu</span><br>
+                Developer Contact: <span>7908470514</span>
+            </div>
+            
+        </div>
     </footer>
 
     <div id="bookingModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
+            <span class="close" onclick="closeModal()">×</span>
             <h3 style="color:var(--primary); margin-bottom: 15px;">Book Appointment</h3>
-            <p style="font-size:0.9rem; color:#666; margin-bottom:15px;">Details will be sent via WhatsApp</p>
+            <p style="font-size:0.9rem; color:#666; margin-bottom:15px;">Dr. Arindam Kundu</p>
             <form id="bookingForm">
-                <label>Name</label>
-                <input type="text" placeholder="Your Name" required>
-                <label>Phone</label>
+                <label>Patient Name</label>
+                <input type="text" placeholder="Enter Name" required>
+                <label>Phone Number</label>
                 <input type="tel" placeholder="Mobile Number" required>
-                <label>Date</label>
-                <input type="date" required>
-                <button type="submit" class="btn-submit">Confirm via WhatsApp</button>
+                <label>Treatment Type</label>
+                <select>
+                    <option>General Checkup</option>
+                    <option>Tooth Pain / RCT</option>
+                    <option>Cleaning / Whitening</option>
+                    <option>Other</option>
+                </select>
+                <button type="submit" class="btn-submit">Book via WhatsApp</button>
             </form>
         </div>
     </div>
@@ -252,44 +488,36 @@
             nav.classList.toggle('active');
         }
 
-        // --- MODAL LOGIC ---
+        // --- MODAL ---
         const modal = document.getElementById("bookingModal");
-
         function openModal() { modal.style.display = "flex"; }
         function closeModal() { modal.style.display = "none"; }
-        
-        window.onclick = function(event) {
-            if (event.target == modal) { closeModal(); }
-        }
+        window.onclick = function(event) { if (event.target == modal) closeModal(); }
 
         // --- WHATSAPP INTEGRATION ---
         document.getElementById('bookingForm').addEventListener('submit', function(e){
             e.preventDefault();
 
-            // 1. Get values from the form
             const inputs = this.getElementsByTagName('input');
+            const select = this.getElementsByTagName('select');
+            
             const name = inputs[0].value;
             const phone = inputs[1].value;
-            const date = inputs[2].value;
+            const treatment = select[0].value;
 
-            // 2. Format the message
-            const message = `*New Appointment Request* %0a` +
+            const message = `*Appointment Request: Archana Dental Clinic* %0a` +
                             `---------------------------%0a` +
-                            `*Name:* ${name} %0a` +
+                            `*Patient:* ${name} %0a` +
                             `*Phone:* ${phone} %0a` +
-                            `*Date:* ${date} %0a` +
+                            `*Issue:* ${treatment} %0a` +
                             `---------------------------%0a` +
-                            `Please confirm this booking.`;
+                            `Please confirm available slot.`;
 
-            // 3. Your WhatsApp Number
-            const doctorNumber = "917908470514"; 
+            // === YOUR NUMBER ===
+            const doctorNumber = "917718799929"; 
 
-            // 4. Create the WhatsApp Link
             const url = `https://wa.me/${doctorNumber}?text=${message}`;
-
-            // 5. Open WhatsApp
             window.open(url, '_blank').focus();
-            
             closeModal();
         });
     </script>
